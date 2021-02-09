@@ -1,4 +1,4 @@
-package kma.topic2.junit.exceptions;
+package org.vsynytsyn.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 

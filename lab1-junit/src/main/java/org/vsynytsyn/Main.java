@@ -1,4 +1,4 @@
-package kma.topic2.junit;
+package org.vsynytsyn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,11 +1,11 @@
-package kma.topic2.junit.model;
+package org.vsynytsyn.model;
 
 import lombok.Builder;
 import lombok.Value;
 
-@Value(staticConstructor = "of")
+@Value
 @Builder
-public class User {
+public class NewUser {
 
     private final String login;
     private final String password;

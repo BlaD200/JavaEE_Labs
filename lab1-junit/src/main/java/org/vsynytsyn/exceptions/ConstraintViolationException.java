@@ -1,8 +1,8 @@
-package kma.topic2.junit.exceptions;
-
-import java.util.List;
+package org.vsynytsyn.exceptions;
 
 import lombok.Getter;
+
+import java.util.List;
 
 public class ConstraintViolationException extends RuntimeException {
 

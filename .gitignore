@@ -18,18 +18,8 @@ build
 **.iws
 **.iml
 **.ipr
-.project
-.settings
 target
 out
-
-### NetBeans ###
-nbproject/private
-nbbuild
-dist
-nbdist
-.nb-gradle
-build
 
 # Compiled source #
 ###################

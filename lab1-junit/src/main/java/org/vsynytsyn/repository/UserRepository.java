@@ -1,15 +1,14 @@
-package kma.topic2.junit.repository;
+package org.vsynytsyn.repository;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.vsynytsyn.exceptions.UserNotFoundException;
+import org.vsynytsyn.model.NewUser;
+import org.vsynytsyn.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import org.springframework.stereotype.Component;
-
-import kma.topic2.junit.exceptions.UserNotFoundException;
-import kma.topic2.junit.model.NewUser;
-import kma.topic2.junit.model.User;
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component

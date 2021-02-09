@@ -1,13 +1,12 @@
-package kma.topic2.junit.service;
+package org.vsynytsyn.service;
 
-import org.springframework.stereotype.Service;
-
-import kma.topic2.junit.model.NewUser;
-import kma.topic2.junit.model.User;
-import kma.topic2.junit.repository.UserRepository;
-import kma.topic2.junit.validation.UserValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.vsynytsyn.model.NewUser;
+import org.vsynytsyn.model.User;
+import org.vsynytsyn.repository.UserRepository;
+import org.vsynytsyn.validation.UserValidator;
 
 @Slf4j
 @Service

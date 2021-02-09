@@ -1,15 +1,14 @@
-package kma.topic2.junit.validation;
+package org.vsynytsyn.validation;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+import org.vsynytsyn.exceptions.ConstraintViolationException;
+import org.vsynytsyn.exceptions.LoginExistsException;
+import org.vsynytsyn.model.NewUser;
+import org.vsynytsyn.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.stereotype.Component;
-
-import kma.topic2.junit.exceptions.ConstraintViolationException;
-import kma.topic2.junit.exceptions.LoginExistsException;
-import kma.topic2.junit.repository.UserRepository;
-import kma.topic2.junit.model.NewUser;
-import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
