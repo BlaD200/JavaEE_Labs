@@ -11,6 +11,7 @@
     <modules>
         <module>lab1-junit</module>
         <module>lab2-thymeleaf</module>
+        <module>lab3-rest</module>
     </modules>
 
     <parent>
