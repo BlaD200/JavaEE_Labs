@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>lab1-junit</module>
+        <module>lab2-thymeleaf</module>
     </modules>
 
     <parent>
