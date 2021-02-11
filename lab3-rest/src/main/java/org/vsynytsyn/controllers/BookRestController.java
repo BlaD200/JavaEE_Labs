@@ -37,9 +37,8 @@ public class BookRestController {
     public ResponseEntity<Object> addNew(@RequestBody BookModel bookModel) {
         for (Method method : bookModel.getClass().getDeclaredMethods()) {
             if (method.getName().startsWith("get") && Modifier.isPublic(method.getModifiers())) {
-                String attr;
                 try {
-                    attr = (String) method.invoke(bookModel);
+                    String attr = (String) method.invoke(bookModel);
                     if (attr == null || attr.isBlank())
                         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
                 } catch (IllegalAccessException | InvocationTargetException ignore) {
