@@ -2,12 +2,14 @@ package org.vsynytsyn.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.vsynytsyn.domain.Book;
 import org.vsynytsyn.dto.BookModel;
 import org.vsynytsyn.service.BookService;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.List;
 
 @RestController
@@ -32,9 +34,17 @@ public class BookRestController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<Object> addNew(@RequestBody BookModel bookModel, Model model) {
-        if (bookModel.getIsbn().isBlank() || bookModel.getTitle().isBlank() || bookModel.getAuthor().isBlank()) {
-            model.addAttribute("invalidInput", true);
+    public ResponseEntity<Object> addNew(@RequestBody BookModel bookModel) {
+        for (Method method : bookModel.getClass().getDeclaredMethods()) {
+            if (method.getName().startsWith("get") && Modifier.isPublic(method.getModifiers())) {
+                String attr;
+                try {
+                    attr = (String) method.invoke(bookModel);
+                    if (attr == null || attr.isBlank())
+                        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
+                } catch (IllegalAccessException | InvocationTargetException ignore) {
+                }
+            }
         }
         if (service.saveBook(bookModel))
             return ResponseEntity.ok().build();

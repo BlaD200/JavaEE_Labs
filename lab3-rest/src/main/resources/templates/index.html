@@ -126,8 +126,11 @@
                             getAllBooks();
                             form.removeClass('was-validated');
                         },
-                        error: () => {
-                            alert('Invalid input or given ISBN already exists')
+                        error: (jqXHR) => {
+                            if (jqXHR.status === 409)
+                                alert('Given ISBN is already exists')
+                            if (jqXHR.status === 422)
+                                alert('Invalid input')
                         }
                     });
                 }
