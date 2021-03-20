@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.vsynytsyn.domain.Book;
 import org.vsynytsyn.service.BookService;
 
@@ -23,11 +24,14 @@ public class BookController {
     }
 
 
-    @GetMapping
-    String getAll(Model model) {
-        List<Book> books = service.getAll();
+    @GetMapping()
+    public String getByTitleOrIsbn(@RequestParam(value = "q", required = false) String q, Model model) {
+        List<Book> books;
+        if (q != null)
+            books = service.getByNameOrIsbn(q);
+        else
+            books = service.getAll();
         model.addAttribute("books", books);
-
         return "index";
     }
 

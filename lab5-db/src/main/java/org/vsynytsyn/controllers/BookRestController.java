@@ -2,15 +2,16 @@ package org.vsynytsyn.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.vsynytsyn.domain.Book;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.vsynytsyn.dto.BookModel;
 import org.vsynytsyn.service.BookService;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/books")
@@ -21,15 +22,6 @@ public class BookRestController {
 
     public BookRestController(BookService service) {
         this.service = service;
-    }
-
-
-    @GetMapping()
-    public List<Book> getByTitleOrIsbn(@RequestParam(value = "q", required = false) String q) {
-        if (q != null)
-            return service.getByNameOrIsbn(q);
-        else
-            return service.getAll();
     }
 
 

@@ -22,6 +22,23 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <div class=" shadow p-3 mt-5 bg-white rounded">
+                <form action="/" class="" id="add-book-form" method="get">
+                    <div class="form-row">
+                        <div class="col">
+                            <input aria-label="Search" class="form-control" id="search-query" name="q"
+                                   placeholder="Search..." required type="search">
+                        </div>
+                        <div class="col-1 w-100">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <div class="shadow p-3 mt-5 bg-white rounded">
                 <table class="table table-responsive-sm">
                     <thead class="thead-dark">
@@ -58,6 +75,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#search-query").keyup(function () {
+        let query = $("input").val();
+        console.log(query)
+        getAllBooksContains(query)
+    });
+
+
+</script>
 
 </body>
 </html>
