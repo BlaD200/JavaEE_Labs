@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+</head>
+<body>
+<script crossorigin="anonymous"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script
+        crossorigin="anonymous"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-md-9 col-lg-6 shadow p-3 mt-5 bg-white rounded">
+            <div class="row justify-content-center">
+                <div class="col" th:if="${book.isPresent()}">
+                    <form class="needs-validation" id="add-book-form" method="post" novalidate>
+                        <div class="form-group">
+                            <label for="book_isbn">Book's ISBN</label>
+                            <input class="form-control" disabled id="book_isbn"
+                                   name="isbn" required th:value="${book.get().getIsbn()}" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="book_title">Book's title</label>
+                            <input class="form-control" disabled id="book_title"
+                                   name="title" required th:value="${book.get().getTitle()}" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="book_author">Book's author</label>
+                            <input class="form-control" disabled id="book_author"
+                                   name="author" required th:value="${book.get().getAuthor()}" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="book_time_added">Time added</label>
+                            <input class="form-control" disabled id="book_time_added"
+                                   name="time_added" required th:value="${book.get().getTimeAdded()}" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="col" th:if="${book.isEmpty() }">
+                    <h3 class="text-center">No such book</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+</script>
+</body>
+</html>
