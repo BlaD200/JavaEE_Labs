@@ -15,6 +15,7 @@
         <module>lab4-starter</module>
         <module>lab5-db</module>
         <module>lab6-data</module>
+        <module>lab7-auth</module>
     </modules>
 
     <parent>
