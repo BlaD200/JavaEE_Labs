@@ -16,6 +16,7 @@
         <module>lab5-db</module>
         <module>lab6-data</module>
         <module>lab7-auth</module>
+        <module>lab8-validation</module>
     </modules>
 
     <parent>
